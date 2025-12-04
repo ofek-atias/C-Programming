@@ -66,7 +66,8 @@ int main() {
     memset(str_pool, 0 , sizeof(pool_len)); //Initialize the pool to be each slot empty
 
     printf("Enter the search string:\n");
-    scanf("%10s", str);
+    scanf("%[^\n]", str);  // Reads with spaces
+    getchar();
 
     strcpy(original_str, str);
 
@@ -77,10 +78,11 @@ int main() {
 
     printf("Enter the strings pool:\n");
 
-    while ((scanf("%10s",str_pool[pool_counter]) != -1) &&  pool_counter < 20)
+    while ((scanf("%[^\n]", str_pool[pool_counter]) != -1) &&  pool_counter < 20)
     {
         lower_string(str_pool[pool_counter]);
         pool_counter++;
+        getchar();
     }
 
     for(int i = 0; i < strlen(str);i++)
